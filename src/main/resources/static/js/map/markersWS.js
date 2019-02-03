@@ -8,7 +8,7 @@ L.layerJSON({
     minShift: 300,				//min shift for update data(in meters)
     updateOutBounds: false,		//request new data only if current bounds higher than last bounds
     layerTarget: layerGroup,
-    url: '/getWS',
+    url: '/ws',
     propertyItems: '',
     propertyTitle: 'name',
     propertyLoc: ['lat', 'lng'],

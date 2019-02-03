@@ -18,29 +18,28 @@ import java.util.List;
 public class MapPointController {
 
 
-    @Autowired
-    private MapPointRepository mapPointRepository;
+
     @Autowired
     private VmsService vmsService;
     @Autowired
-    WeatherStationsService weatherStationsService;
+    private WeatherStationsService weatherStationsService;
     @Autowired
-    CamerasService camerasService;
+    private CamerasService camerasService;
 
 
-    @RequestMapping("/getCameras")
+    @RequestMapping("/cameras")
     public List<CameraDisplayPojo> list() {
         return camerasService.getAllCameras();
     }
 
 
-    @RequestMapping("/getWS")
+    @RequestMapping("/ws")
     public List<WSDisplayPojo> listWS() {
         return weatherStationsService.getAllWeatherStations();
 
     }
 
-    @RequestMapping("/getVms")
+    @RequestMapping("/vms")
     public List<VmsDisplayPojo> listVms() {
         return vmsService.getAllVmsToDisplay();
 

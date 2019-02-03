@@ -56,7 +56,10 @@ public class CamerasService {
                 .build();
     }
 
-    public CameraPojo Entitymap(CameraEntity source) {
+    public CameraPojo entityMap(CameraEntity source) {
+        if (source == null) {
+            return null;
+        }
         List<String> coordinatesList = new ArrayList<>();
         coordinatesList.add(0, source.getLng());
         coordinatesList.add(1, source.getLat());

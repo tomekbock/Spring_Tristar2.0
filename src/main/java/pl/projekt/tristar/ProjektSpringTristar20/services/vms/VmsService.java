@@ -32,6 +32,9 @@ public class VmsService {
     }
 
     public VmsDisplayPojo mapToDisplay(VmsEntity source) {
+        if (source == null) {
+            return null;
+        }
         return VmsDisplayPojo.builder()
                 .id(source.getVmsId())
                 .lat(Double.parseDouble(source.getLat()))

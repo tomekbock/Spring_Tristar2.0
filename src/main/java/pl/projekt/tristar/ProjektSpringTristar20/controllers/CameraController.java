@@ -23,7 +23,7 @@ public class CameraController {
     }
 
 
-    @GetMapping("/cameras")
+    @GetMapping("/camera")
     public String show(Model model) {
         model.addAttribute("serverTime", new Date());
         return "tristarCameras";

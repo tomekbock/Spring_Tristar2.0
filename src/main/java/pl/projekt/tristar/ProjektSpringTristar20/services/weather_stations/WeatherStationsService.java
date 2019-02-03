@@ -35,6 +35,9 @@ public class WeatherStationsService {
 
     }
     public WSDisplayPojo mapToDisplay(WeatherStationEntity source) {
+        if (source == null) {
+            return null;
+        }
         return WSDisplayPojo.builder()
                 .id(source.getId())
                 .lat(Double.parseDouble(source.getLat()))
