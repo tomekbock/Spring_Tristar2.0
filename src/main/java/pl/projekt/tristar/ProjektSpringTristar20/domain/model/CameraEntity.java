@@ -21,7 +21,7 @@ public class CameraEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer cameraId;
+    private Long cameraId;
     private String name;
     private String lat;
     private String lng;

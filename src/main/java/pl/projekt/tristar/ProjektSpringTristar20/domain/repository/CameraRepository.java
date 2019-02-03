@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.CameraEntity;
 
 @Repository
-public interface CameraRepository extends JpaRepository<CameraEntity, Integer> {
+public interface CameraRepository extends JpaRepository<CameraEntity, Long> {
 
 
 

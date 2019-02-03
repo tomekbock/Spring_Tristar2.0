@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WSDisplayPojo {
+public class VmsDisplayPojo {
 
-
-    public WSDisplayPojo(Long id, String name, double lat, double lng) {
+    public VmsDisplayPojo(Long id, String name, double lat, double lng) {
         this.id = id;
         this.name = name;
         this.lat = lat;
@@ -20,9 +19,10 @@ public class WSDisplayPojo {
     }
 
 
-
     private Long id;
     private String name;
     private Double lat;
     private Double lng;
 }
+
+

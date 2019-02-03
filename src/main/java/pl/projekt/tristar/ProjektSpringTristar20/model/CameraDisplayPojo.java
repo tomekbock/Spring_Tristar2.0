@@ -9,16 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WSDisplayPojo {
+public class CameraDisplayPojo {
 
-
-    public WSDisplayPojo(Long id, String name, double lat, double lng) {
-        this.id = id;
+    public CameraDisplayPojo(String name, String description, String category, double lat, double lng) {
         this.name = name;
         this.lat = lat;
         this.lng = lng;
     }
-
 
 
     private Long id;
@@ -26,3 +23,4 @@ public class WSDisplayPojo {
     private Double lat;
     private Double lng;
 }
+

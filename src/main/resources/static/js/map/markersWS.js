@@ -22,7 +22,7 @@ L.layerJSON({
     },
     buildPopup: function (data) {
         return '<img class="" >' +
-            ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odświerz zdjęcie\n' +
+            ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odśwież zdjęcie\n' +
             '    </button>\n'|| null;
     }
 })

@@ -8,7 +8,7 @@ L.layerJSON({
     minShift: 300,				//min shift for update data(in meters)
     updateOutBounds: false,		//request new data only if current bounds higher than last bounds
     layerTarget: layerGroup,
-    url: '/get',
+    url: '/getCameras',
     propertyItems: '',
     propertyTitle: 'name',
     propertyLoc: ['lat', 'lng'],
@@ -23,7 +23,7 @@ L.layerJSON({
     buildPopup: function (data) {
         return '<img class="img-rounded" src="/cameras/ '+data.id+'" >' +
             '<h5>'+data.name+'</h5>' +
-            ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odświerz zdjęcie\n' +
+            ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odśwież zdjęcie\n' +
             '    </button>\n'|| null;
     }
 })

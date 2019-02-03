@@ -19,7 +19,7 @@ public class VmsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int vmsId;
+    private Long vmsId;
     private String lat;
     private String lng;
     private String lastUpdate;
