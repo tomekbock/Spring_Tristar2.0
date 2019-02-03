@@ -7,7 +7,6 @@ import pl.projekt.tristar.ProjektSpringTristar20.model.VmsInfoPojo;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class VmsInfoService {
@@ -21,9 +20,6 @@ public class VmsInfoService {
 
         ObjectMapper objectMapper = new ObjectMapper();
         List<VmsInfoPojo> list = objectMapper.readValue(json, objectMapper.getTypeFactory().constructCollectionType(List.class, VmsInfoPojo.class));
-        if (list.isEmpty()||list==null) {
-            return null;
-        }
 
         return list.get(0);
 

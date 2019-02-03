@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 public class VmsMapService {
 
     @Autowired
-    private VmsRepository vmsRepository;
+    VmsRepository vmsRepository;
 
     @Autowired
-    private VmsPointRepository vmsPointRepository;
+    VmsPointRepository vmsPointRepository;
 
     @EventListener(ApplicationReadyEvent.class)
     public void addPoint() {

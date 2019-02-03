@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.MapPointEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.VmsEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.MapPointRepository;
+import pl.projekt.tristar.ProjektSpringTristar20.model.WSDisplayPojo;
 import pl.projekt.tristar.ProjektSpringTristar20.services.vms.VmsService;
+import pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations.WeatherStationsService;
 
 import java.util.List;
 
@@ -16,9 +18,12 @@ public class MapPointController {
 
 
     @Autowired
-    private MapPointRepository mapPointRepository;
+    MapPointRepository mapPointRepository;
+
     @Autowired
-    private VmsService vmsService;
+    VmsService vmsService;
+    @Autowired
+    WeatherStationsService weatherStationsService;
 
     @RequestMapping("/get")
     public Iterable<MapPointEntity> list() {
@@ -28,6 +33,12 @@ public class MapPointController {
     @RequestMapping("/getVms")
     public List<VmsEntity> listVms() {
        return vmsService.getAll();
+
+    }
+
+    @RequestMapping("/getWS")
+    public List<WSDisplayPojo> listWS() {
+        return weatherStationsService.getAllWeatherStations();
 
     }
 

@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class VmsService {
 
     @Autowired
-    private VmsRepository vmsRepository;
+    VmsRepository vmsRepository;
 
     @EventListener(ApplicationReadyEvent.class)
     public void getVmsFromJson() {
@@ -35,10 +35,6 @@ public class VmsService {
 
     public VmsEntity map(VmsSinglePOJO source) {
 
-        if (source == null) {
-            return null;
-        }
-
         return VmsEntity.builder()
                 .lastUpdate(source.getLastUpdate())
                 .lat(source.getLocation().getCoordinates().get(1))
@@ -48,14 +44,9 @@ public class VmsService {
     }
 
     public VmsSinglePOJO map(VmsEntity source) {
-
-        if (source == null) {
-            return null;
-        }
-
         List<String> coordinatesList = new ArrayList<>();
-        coordinatesList.add(0, source.getLng());
-        coordinatesList.add(1, source.getLat());
+        coordinatesList.add(0,source.getLng());
+        coordinatesList.add(1,source.getLat());
         return VmsSinglePOJO.builder()
                 .id(source.getVmsId())
                 .lastUpdate(source.getLastUpdate())
@@ -71,7 +62,7 @@ public class VmsService {
     }
 
 
-    public List<VmsEntity> getAll() {
+    public List<VmsEntity> getAll(){
 
 
         return vmsRepository.findAll();

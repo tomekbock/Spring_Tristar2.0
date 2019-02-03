@@ -11,7 +11,7 @@ public class PageController {
 
 
     @Autowired
-    private MapService mapService;
+    MapService mapService;
 
 
 
@@ -21,8 +21,9 @@ public class PageController {
     public String homePage()
 
     {
+//       mapService.displayPoint();
 
-        return "camerasMap";
+        return "testMap";
     }
 
 
@@ -31,8 +32,14 @@ public class PageController {
     public String homePage2()
 
     {
+        return "testVms";
+    }
 
-        return "vmsMap";
+    @RequestMapping("/WSMap")
+    public String WeatherStationSite()
+
+    {
+        return "WSMap";
     }
 
 

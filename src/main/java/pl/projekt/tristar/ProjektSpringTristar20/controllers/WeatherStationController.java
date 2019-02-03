@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.WeatherInfoEntity;
-import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.WeatherStationRepository;
 import pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations.WeatherInfoService;
 import pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations.WeatherStationsService;
 
@@ -16,9 +15,9 @@ import pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations.Weath
 public class WeatherStationController {
 
     @Autowired
-    private WeatherInfoService weatherInfoService;
+    WeatherInfoService weatherInfoService;
     @Autowired
-    private WeatherStationsService weatherStationsService;
+    WeatherStationsService weatherStationsService;
 
     @GetMapping("/weather/stations")
     public String weatherStations(Model model){
@@ -28,7 +27,8 @@ public class WeatherStationController {
     }
 
     @GetMapping("/weather/info")
-    public String weatherInfo(@RequestParam(value = "id") int id, Model model){
+    public String weatherInfo(@ModelAttribute("weatherInfo") WeatherInfoEntity weatherInfoEntity,
+                              @RequestParam(value = "id") int id, Model model){
 
         model.addAttribute("weatherStation",weatherStationsService.getWeatherStationById(id));
         model.addAttribute("weatherInfo", weatherInfoService.getWeatherInfoForCurrentStation(id));

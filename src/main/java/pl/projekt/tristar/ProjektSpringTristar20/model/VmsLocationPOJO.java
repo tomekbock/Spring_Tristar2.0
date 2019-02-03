@@ -14,5 +14,5 @@ import java.util.List;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VmsLocationPOJO {
-    private List<String> coordinates;
+    List<String> coordinates;
 }

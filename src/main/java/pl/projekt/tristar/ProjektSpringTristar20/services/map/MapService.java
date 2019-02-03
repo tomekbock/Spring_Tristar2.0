@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class MapService {
 
     @Autowired
-    private MapPointRepository mapPointRepository;
+    MapPointRepository mapPointRepository;
     @Autowired
-    private CameraRepository cameraRepository;
+    CameraRepository cameraRepository;
 
     @EventListener(ApplicationReadyEvent.class)
     public void addPoint() {
@@ -32,9 +32,6 @@ public class MapService {
 
 
     public MapPointEntity maper(CameraEntity cameraEntity) {
-        if (cameraEntity==null) {
-            return null;
-        }
         MapPointEntity mapPointEntity = new MapPointEntity();
         mapPointEntity.setId(cameraEntity.getCameraId());
         mapPointEntity.setLat(Double.parseDouble(cameraEntity.getLat()));

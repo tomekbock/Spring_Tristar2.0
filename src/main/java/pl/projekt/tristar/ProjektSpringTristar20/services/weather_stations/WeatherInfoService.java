@@ -9,6 +9,7 @@ import pl.projekt.tristar.ProjektSpringTristar20.domain.model.WeatherInfoEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.WeatherStationEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.WeatherInfoRepository;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.WeatherStationRepository;
+import pl.projekt.tristar.ProjektSpringTristar20.model.WSDisplayPojo;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherInfoPOJO;
 
 import java.time.LocalDateTime;
@@ -18,9 +19,9 @@ import java.util.Objects;
 @Service
 public class WeatherInfoService {
     @Autowired
-    private WeatherStationRepository weatherStationRepository;
+    WeatherStationRepository weatherStationRepository;
     @Autowired
-    private WeatherInfoRepository weatherInfoRepository;
+    WeatherInfoRepository weatherInfoRepository;
 
     public WeatherInfoPOJO getWeatherInfoFromStation(int id) {
         try {
@@ -32,9 +33,6 @@ public class WeatherInfoService {
 
             ObjectMapper objectMapper = new ObjectMapper();
             List<WeatherInfoPOJO> list = objectMapper.readValue(json, objectMapper.getTypeFactory().constructCollectionType(List.class, WeatherInfoPOJO.class));
-            if (list.isEmpty() || list == null) {
-                return null;
-            }
 
             return list.get(0);
         } catch (Exception e) {
@@ -44,10 +42,10 @@ public class WeatherInfoService {
 
     }
 
+
+
+
     public WeatherInfoEntity map(WeatherInfoPOJO source) {
-        if (source == null) {
-            return null;
-        }
         return WeatherInfoEntity.builder()
                 .airTemperature(source.getAirTemperature())
                 .chemicalConcentration(source.getChemicalConcentration())
@@ -97,6 +95,10 @@ public class WeatherInfoService {
     public WeatherInfoPOJO getWeatherInfoForCurrentStation(int id) {
         return map(weatherInfoRepository.findFirstByWeatherStationIdOrderByDownloadTimeDesc(id));
     }
+
+
+
+
 
 
 }

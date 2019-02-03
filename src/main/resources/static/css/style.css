@@ -1,12 +1,4 @@
 
-.container-fluid {
-background-color: red;
-}
-
-
-
-
-
 figcaption{
     margin-top: 30px;
     position: center;
@@ -24,6 +16,12 @@ div{
     position: center;
 }
 
+.img-thumbnail {
+    width: 150%;
+    height: 150%;
+
+    position: center;
+}
 
 h5{
     position: center;

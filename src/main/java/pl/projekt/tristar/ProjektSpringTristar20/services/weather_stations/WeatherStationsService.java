@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.WeatherStationEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.WeatherStationRepository;
+import pl.projekt.tristar.ProjektSpringTristar20.model.WSDisplayPojo;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherStationLocationPOJO;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherStationPOJO;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherStationsPOJO;
@@ -35,9 +36,6 @@ public class WeatherStationsService {
     }
 
     public WeatherStationEntity map(WeatherStationPOJO source) {
-        if (source == null) {
-            return null;
-        }
         return WeatherStationEntity.builder()
                 .lat(source.getLocation().getCoordinates().get(1))
                 .lng(source.getLocation().getCoordinates().get(0))
@@ -46,9 +44,6 @@ public class WeatherStationsService {
     }
 
     public WeatherStationPOJO map(WeatherStationEntity source) {
-        if (source == null) {
-            return null;
-        }
         List<String> coordinatesList = new ArrayList<>();
         coordinatesList.add(0,source.getLng());
         coordinatesList.add(1,source.getLat());
@@ -61,13 +56,25 @@ public class WeatherStationsService {
                 .build();
     }
 
+    public WSDisplayPojo mapToDisplay(WeatherStationEntity source) {
+        return WSDisplayPojo.builder()
+                .id(source.getId())
+                .lat(Double.parseDouble(source.getLat()))
+                .lng(Double.parseDouble(source.getLng()))
+                .name(source.getStreet())
+                .build();
+
+
+    }
     public WeatherStationPOJO getWeatherStationById(int id) {
         return map(weatherStationRepository.findByStationId(id));
     }
-    public List<WeatherStationPOJO> getAllWeatherStations() {
 
-        return weatherStationRepository.findAll().stream().map(this::map).collect(Collectors.toList());
+    public List<WSDisplayPojo> getAllWeatherStations() {
+
+        return weatherStationRepository.findAll().stream().map(this::mapToDisplay).collect(Collectors.toList());
     }
+
 
 
 }
