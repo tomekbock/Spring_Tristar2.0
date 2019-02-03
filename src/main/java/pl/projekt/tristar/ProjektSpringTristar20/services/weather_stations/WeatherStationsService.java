@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.WeatherStationEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.WeatherStationRepository;
+import pl.projekt.tristar.ProjektSpringTristar20.model.WSDisplayPojo;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherStationLocationPOJO;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherStationPOJO;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherStationsPOJO;
@@ -31,6 +32,16 @@ public class WeatherStationsService {
                 .getForObject(weatherStationsUrl, WeatherStationsPOJO.class);
 
         weatherStationsPOJO.getWeatherStations().stream().map(this::map).forEach(weatherStationRepository::save);
+
+    }
+    public WSDisplayPojo mapToDisplay(WeatherStationEntity source) {
+        return WSDisplayPojo.builder()
+                .id(source.getId())
+                .lat(Double.parseDouble(source.getLat()))
+                .lng(Double.parseDouble(source.getLng()))
+                .name(source.getStreet())
+                .build();
+
 
     }
 
@@ -64,10 +75,14 @@ public class WeatherStationsService {
     public WeatherStationPOJO getWeatherStationById(int id) {
         return map(weatherStationRepository.findByStationId(id));
     }
-    public List<WeatherStationPOJO> getAllWeatherStations() {
 
-        return weatherStationRepository.findAll().stream().map(this::map).collect(Collectors.toList());
+
+    public List<WSDisplayPojo> getAllWeatherStations() {
+
+        return weatherStationRepository.findAll().stream().map(this::mapToDisplay).collect(Collectors.toList());
     }
+
+
 
 
 }

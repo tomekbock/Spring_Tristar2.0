@@ -8,7 +8,7 @@ L.layerJSON({
     minShift: 300,				//min shift for update data(in meters)
     updateOutBounds: false,		//request new data only if current bounds higher than last bounds
     layerTarget: layerGroup,
-    url: '/getVms',
+    url: '/getWS',
     propertyItems: '',
     propertyTitle: 'name',
     propertyLoc: ['lat', 'lng'],
@@ -21,7 +21,7 @@ L.layerJSON({
         });
     },
     buildPopup: function (data) {
-        return '<img class="img-thumbnail" src="/vms/'+data.vmsId+'" >' +
+        return '<img class="" >' +
             ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odświerz zdjęcie\n' +
             '    </button>\n'|| null;
     }

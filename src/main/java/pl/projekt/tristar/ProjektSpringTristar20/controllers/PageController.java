@@ -35,6 +35,15 @@ public class PageController {
         return "vmsMap";
     }
 
+    @RequestMapping("/WSMap")
+    public String WeatherStationSite()
+
+    {
+        return "WSMap";
+    }
+
+
+
 
 
 
