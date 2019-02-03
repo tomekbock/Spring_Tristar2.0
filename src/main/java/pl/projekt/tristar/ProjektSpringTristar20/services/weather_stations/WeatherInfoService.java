@@ -86,7 +86,7 @@ public class WeatherInfoService {
                 .weatherStationId(source.getWeatherStationId()).windSpeed(source.getWindSpeed()).build();
     }
 
-    @Scheduled(initialDelay = 5000, fixedDelay = 30000)
+    @Scheduled(initialDelay = 5000, fixedDelay = 600000)
     public void getInfoForAllStations() {
 
         weatherStationRepository.findAll()
