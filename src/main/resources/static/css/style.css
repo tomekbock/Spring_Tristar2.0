@@ -1,0 +1,30 @@
+
+.container-fluid {
+background-color: red;
+}
+
+
+
+
+
+figcaption{
+    margin-top: 30px;
+    position: center;
+}
+
+div{
+    margin-bottom: 10px;
+}
+
+
+.img-rounded {
+    width: 25rem;
+    height: 25rem;
+
+    position: center;
+}
+
+
+h5{
+    position: center;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="*{weatherStation.getStreet()}">Weather Station Name</title>
+</head>
+<body>
+<h1 th:text="*{weatherStation.getStreet()}">Weather Station Name</h1>
+<table>
+    <tr>
+        <td>Temperatura powietrza</td>
+        <td th:text="*{' : ' + weatherInfo.getAirTemperature()}">temperature</td>
+    </tr>
+    <tr>
+        <td>Prędkość wiatru</td>
+        <td th:text="*{' : ' + weatherInfo.getWindSpeed()}">wind speed</td>
+    </tr>
+    <tr>
+        <td>Kierunek wiatru</td>
+        <td th:text="*{' : ' + weatherInfo.getWindDirection()}">wind direction</td>
+    </tr>
+    <tr>
+        <td>Czas pomiaru</td>
+        <td th:text="*{' : ' + weatherInfo.getMeasureTime()}">Measure Time</td>
+    </tr>
+</table>
+
+</body>
+</html>
