@@ -17,5 +17,5 @@ public class VmsSinglePOJO {
 
     private VmsLocationPOJO location;
 
-    private int id;
+    private Long id;
 }

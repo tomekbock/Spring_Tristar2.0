@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.CameraEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.CameraRepository;
-import pl.projekt.tristar.ProjektSpringTristar20.model.CameraInfoPojo;
-import pl.projekt.tristar.ProjektSpringTristar20.model.CameraLocationPojo;
-import pl.projekt.tristar.ProjektSpringTristar20.model.CameraPojo;
-import pl.projekt.tristar.ProjektSpringTristar20.model.CamerasPojo;
+import pl.projekt.tristar.ProjektSpringTristar20.model.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -37,7 +34,7 @@ public class CamerasService {
     }
 
     public CameraEntity map(CameraPojo source) {
-        if (source==null) {
+        if (source == null) {
             return null;
         }
         return CameraEntity.builder()
@@ -47,10 +44,25 @@ public class CamerasService {
                 .name(source.getName()).build();
     }
 
-    public CameraPojo map(CameraEntity source) {
+    public CameraDisplayPojo mapToDisplay(CameraEntity source) {
+        if (source == null) {
+            return null;
+        }
+        return CameraDisplayPojo.builder()
+                .id(source.getCameraId())
+                .lat(Double.parseDouble(source.getLat()))
+                .lng(Double.parseDouble(source.getLng()))
+                .name(source.getName())
+                .build();
+    }
+
+    public CameraPojo entityMap(CameraEntity source) {
+        if (source == null) {
+            return null;
+        }
         List<String> coordinatesList = new ArrayList<>();
-        coordinatesList.add(0,source.getLng());
-        coordinatesList.add(1,source.getLat());
+        coordinatesList.add(0, source.getLng());
+        coordinatesList.add(1, source.getLat());
         return CameraPojo.builder()
                 .id(source.getCameraId())
                 .name(source.getName())
@@ -78,11 +90,16 @@ public class CamerasService {
     }
 
 
-    public List<CameraPojo> getCamerasList() {
+//    public List<CameraPojo> getCamerasList() {
+//
+//        return cameraRepository.findAll().stream().filter(Objects::nonNull).map(this::map).collect(Collectors.toList());
+//
+//
+//    }
 
-        return cameraRepository.findAll().stream().filter(Objects::nonNull).map(this::map).collect(Collectors.toList());
+    public List<CameraDisplayPojo> getAllCameras() {
 
-
+        return cameraRepository.findAll().stream().map(this::mapToDisplay).collect(Collectors.toList());
     }
 
 

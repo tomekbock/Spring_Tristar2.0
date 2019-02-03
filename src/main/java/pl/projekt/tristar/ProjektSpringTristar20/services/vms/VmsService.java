@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.VmsEntity;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.VmsRepository;
-import pl.projekt.tristar.ProjektSpringTristar20.model.VmsLocationPOJO;
-import pl.projekt.tristar.ProjektSpringTristar20.model.VmsPOJO;
-import pl.projekt.tristar.ProjektSpringTristar20.model.VmsSinglePOJO;
+import pl.projekt.tristar.ProjektSpringTristar20.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +30,23 @@ public class VmsService {
         vmsPOJO.getVms().stream().map(this::map).forEach(vmsRepository::save);
 
     }
+
+    public VmsDisplayPojo mapToDisplay(VmsEntity source) {
+        if (source == null) {
+            return null;
+        }
+        return VmsDisplayPojo.builder()
+                .id(source.getVmsId())
+                .lat(Double.parseDouble(source.getLat()))
+                .lng(Double.parseDouble(source.getLng()))
+                .build();
+
+
+
+
+
+    }
+
 
     public VmsEntity map(VmsSinglePOJO source) {
 
@@ -76,6 +91,11 @@ public class VmsService {
 
         return vmsRepository.findAll();
 
+    }
+
+    public List<VmsDisplayPojo> getAllVmsToDisplay() {
+
+        return vmsRepository.findAll().stream().map(this::mapToDisplay).collect(Collectors.toList());
     }
 
 

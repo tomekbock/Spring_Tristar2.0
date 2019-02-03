@@ -18,7 +18,7 @@ public class CameraPojo {
 
     private CameraLocationPojo location;
 
-    private Integer id;
+    private Long id;
 
 
 }
