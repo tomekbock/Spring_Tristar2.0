@@ -38,8 +38,8 @@ public class WeatherStationController {
         return "weatherInfo";
     }
 
-    @GetMapping(path = "/history/{id}/{limit}/{direction}")
-    public String history(@PathVariable("id") int id, @PathVariable("limit") int limit,@PathVariable("direction") String dir , Model model) {
+    @GetMapping(path = "/history/{id}")
+    public String history(@PathVariable("id") int id, @RequestParam(value = "limit", defaultValue = "1", required = false) int limit,@RequestParam(value = "direction", required = false) String dir , Model model) {
         Sort.Direction direction;
         if ("asc".equalsIgnoreCase(dir)) {
             direction = Sort.Direction.ASC;

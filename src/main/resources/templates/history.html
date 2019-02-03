@@ -12,9 +12,9 @@
 <body>
 <h1>Weather Stations</h1>
 <table>
-    <tr th:each="station : ${history}">
-      <td  th:text="*{station.getAirTemperature()}">temp</td>
-        <td th:text="*{station.getMeasureTime()}">measure time</td>
+    <tr th:each="historyPoint : ${history}">
+      <td  th:text="*{historyPoint.getAirTemperature()}">temp</td>
+        <td th:text="*{historyPoint.getMeasureTime()}">measure time</td>
 
     </tr>
 </table>
