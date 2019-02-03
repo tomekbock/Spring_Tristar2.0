@@ -2,6 +2,9 @@ package pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +17,7 @@ import pl.projekt.tristar.ProjektSpringTristar20.model.WeatherInfoPOJO;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class WeatherInfoService {
@@ -96,6 +100,12 @@ public class WeatherInfoService {
 
     public WeatherInfoPOJO getWeatherInfoForCurrentStation(int id) {
         return map(weatherInfoRepository.findFirstByWeatherStationIdOrderByDownloadTimeDesc(id));
+    }
+
+    public List<WeatherInfoPOJO> getHistory(int id, int limit, Sort.Direction direction) {
+        PageRequest pageable = PageRequest.of(0, limit, direction, "downloadTime");
+        return weatherInfoRepository.findByWeatherStationId(id,pageable).stream().map(this::map).collect(Collectors.toList());
+
     }
 
 
