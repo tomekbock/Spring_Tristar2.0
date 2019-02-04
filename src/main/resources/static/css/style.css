@@ -7,9 +7,13 @@ figcaption{
 div{
     margin-bottom: 10px;
 }
+.PhotoTristar img{
 
+    width: auto;
+    height: auto;
 
-.img-rounded {
+}
+.img-rounded c {
     width: 25rem;
     height: 25rem;
 

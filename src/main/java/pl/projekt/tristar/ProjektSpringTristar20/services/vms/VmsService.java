@@ -28,7 +28,6 @@ public class VmsService {
         VmsPOJO vmsPOJO = restTemplate.getForObject(vmsUrl, VmsPOJO.class);
 
         vmsPOJO.getVms().stream().map(this::map).forEach(vmsRepository::save);
-
     }
 
     public VmsDisplayPojo mapToDisplay(VmsEntity source) {

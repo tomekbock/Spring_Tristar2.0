@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.projekt.tristar.ProjektSpringTristar20.services.cameras.CamerasService;
 
@@ -18,7 +19,7 @@ public class CameraController {
     private CamerasService camerasService;
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
@@ -36,5 +37,12 @@ public class CameraController {
         return "redirect:http://51.38.132.218" + camerasService.getCameraInfo(id);
 
     }
+
+    @ModelAttribute
+    public void addAttributes(Model model) {
+
+        model.addAttribute("CamerasList",camerasService.getAllCameras());
+    }
+
 
 }
