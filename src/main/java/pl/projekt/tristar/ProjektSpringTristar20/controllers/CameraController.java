@@ -41,7 +41,13 @@ public class CameraController {
     @ModelAttribute
     public void addAttributes(Model model) {
 
-        model.addAttribute("CamerasList",camerasService.getAllCameras());
+        model.addAttribute("CamerasList", camerasService.getAllCameras());
+    }
+    @GetMapping("/test")
+    public String showtest() {
+
+        return "test";
+
     }
 
 
