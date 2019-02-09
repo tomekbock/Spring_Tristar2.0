@@ -43,12 +43,7 @@ public class CameraController {
 
         model.addAttribute("CamerasList", camerasService.getAllCameras());
     }
-    @GetMapping("/test")
-    public String showtest() {
 
-        return "test";
-
-    }
 
 
 }
