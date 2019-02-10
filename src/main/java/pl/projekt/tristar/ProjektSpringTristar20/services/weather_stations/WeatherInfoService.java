@@ -99,19 +99,19 @@ public class WeatherInfoService {
         int windDir = source.getWindDirection();
         if (windDir > 338 || windDir < 22) {
             windDirection = "N";
-        } else if (windDir > 23 && windDir < 67) {
+        } else if ( windDir < 67) {
             windDirection = "NE";
-        } else if (windDir > 68 && windDir < 112) {
+        } else if (windDir < 112) {
             windDirection = "E";
-        }else if (windDir > 113 && windDir < 157) {
+        } else if (windDir < 157) {
             windDirection = "SE";
-        }else if (windDir > 158 && windDir < 192) {
+        } else if (windDir < 192) {
             windDirection = "S";
-        }else if (windDir > 193 && windDir < 247) {
+        } else if (windDir < 247) {
             windDirection = "SW";
-        }else if (windDir > 248 && windDir < 292) {
+        } else if (windDir < 292) {
             windDirection = "W";
-        }else if (windDir > 293 && windDir < 337) {
+        } else if (windDir < 337) {
             windDirection = "NW";
         }
         return WSDisplayPojo.builder()
