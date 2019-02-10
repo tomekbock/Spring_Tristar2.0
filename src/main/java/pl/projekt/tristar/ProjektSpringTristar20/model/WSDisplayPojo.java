@@ -25,4 +25,12 @@ public class WSDisplayPojo {
     private String name;
     private Double lat;
     private Double lng;
+
+
+
+
+
+
+
+
 }

@@ -28,11 +28,11 @@ public class WeatherInfoPOJO {
 
     private String waterIceThickness;
 
-    private int id;
+    private Long id;
 
     private int windDirection;
 
     private String windSpeed;
 
-    private int weatherStationId;
+    private Long weatherStationId;
 }

@@ -29,10 +29,15 @@
 
                 <div th:each="camera : ${CamerasList}" class="col-sm-6 col-md-3">
 
+                    <figure class="figure">
+                        <img th:src="@{/cameras/} + ${camera.getId()}" class="figure-img img-fluid rounded" alt="No photo in OpenData">
+                        <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                    </figure>
 
-                        <img th:src="@{/cameras/} + ${camera.getId()}" class="img-fluid img-thumbnail"
-                             alt="No photo in OpenData" width="auto" height="auto">
-                        <h3 th:text="${camera.getName()}" class="caption">Caption 1</h3>
+
+                        <!--<img th:src="@{/cameras/} + ${camera.getId()}" class="img-fluid img-thumbnail"-->
+                             <!--alt="No photo in OpenData" width="auto" height="auto">-->
+                        <!--<h3 th:text="${camera.getName()}" class="caption">Caption 1</h3>-->
 
                     <!--<div th:text="${cameras.getName()}" class="caption">Caption 1</div>-->
 

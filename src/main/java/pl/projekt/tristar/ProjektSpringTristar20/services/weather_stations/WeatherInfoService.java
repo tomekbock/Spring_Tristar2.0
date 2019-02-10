@@ -22,7 +22,7 @@ public class WeatherInfoService {
     @Autowired
     private WeatherInfoRepository weatherInfoRepository;
 
-    public WeatherInfoPOJO getWeatherInfoFromStation(int id) {
+    public WeatherInfoPOJO getWeatherInfoFromStation(Long id) {
         try {
             RestTemplate restTemplate = new RestTemplate();
             String weatherStationUrl = "http://51.38.132.218/ri/rest/weather_station_data?weatherStationId=" + id;
@@ -94,7 +94,7 @@ public class WeatherInfoService {
                 .forEach(weatherInfoRepository::save);
     }
 
-    public WeatherInfoPOJO getWeatherInfoForCurrentStation(int id) {
+    public WeatherInfoPOJO getWeatherInfoForCurrentStation(Long id) {
         return map(weatherInfoRepository.findFirstByWeatherStationIdOrderByDownloadTimeDesc(id));
     }
 

@@ -19,7 +19,7 @@ public class WeatherStationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int stationId;
+    private Long stationId;
     private String street;
     private String lat;
     private String lng;

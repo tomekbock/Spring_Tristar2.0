@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public interface WeatherStationRepository extends JpaRepository<WeatherStationEntity, Long> {
 
 
-    WeatherStationEntity findByStationId(int stationId);
+    WeatherStationEntity findByStationId(Long stationId);
     WeatherStationEntity findById(Id id);
 
 

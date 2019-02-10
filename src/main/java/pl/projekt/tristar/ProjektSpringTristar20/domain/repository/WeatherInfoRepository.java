@@ -7,5 +7,5 @@ import pl.projekt.tristar.ProjektSpringTristar20.domain.model.WeatherInfoEntity;
 @Repository
 public interface WeatherInfoRepository extends JpaRepository<WeatherInfoEntity, Long> {
 
-    WeatherInfoEntity findFirstByWeatherStationIdOrderByDownloadTimeDesc(int id);
+    WeatherInfoEntity findFirstByWeatherStationIdOrderByDownloadTimeDesc(Long id);
 }
