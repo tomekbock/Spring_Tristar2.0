@@ -1,17 +1,19 @@
 
-figcaption{
+figcaption {
     margin-top: 30px;
     position: center;
 }
 
-div{
-    margin-bottom: 10px;
+.PhotoTristar img {
+
+    width: auto;
+    height: auto;
+
 }
 
-
 .img-rounded {
-    width: 25rem;
-    height: 25rem;
+    width: 18rem;
+    height: 18rem;
 
     position: center;
 }
@@ -23,6 +25,80 @@ div{
     position: center;
 }
 
-h5{
+.img-fluid {
+
+    width: 100%;
+    height: auto;
+
+    position: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+h5 {
     position: center;
 }
+
+body {
+
+    color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #C0D06F;
+    margin: 20px;
+}
+
+.img-fluid {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+#middleButton {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#refresh {
+
+    float: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+.figure img{
+    width: 100%;
+    height: auto;
+}
+
+.text-primary {
+    text-align: center;
+}
+
+
+#tristarCamera{
+    margin-bottom: 10px;
+}
+
+#buttonMap{
+    margin-bottom: 5px;
+}
+
+.mapDiv a{
+    float: right;
+}
+
+
+
+
+

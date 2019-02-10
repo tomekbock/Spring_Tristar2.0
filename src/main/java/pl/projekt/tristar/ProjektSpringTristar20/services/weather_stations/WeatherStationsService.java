@@ -39,7 +39,7 @@ public class WeatherStationsService {
             return null;
         }
         return WSDisplayPojo.builder()
-                .id(source.getId())
+                .id(source.getStationId())
                 .lat(Double.parseDouble(source.getLat()))
                 .lng(Double.parseDouble(source.getLng()))
                 .name(source.getStreet())
@@ -75,7 +75,7 @@ public class WeatherStationsService {
                 .build();
     }
 
-    public WeatherStationPOJO getWeatherStationById(int id) {
+    public WeatherStationPOJO getWeatherStationById(Long id) {
         return map(weatherStationRepository.findByStationId(id));
     }
 

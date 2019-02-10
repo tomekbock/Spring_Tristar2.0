@@ -30,7 +30,7 @@ public class WeatherStationController {
     }
 
     @GetMapping("/weather/info")
-    public String weatherInfo(@RequestParam(value = "id") int id, Model model){
+    public String weatherInfo(@RequestParam(value = "id") Long id, Model model){
 
         model.addAttribute("weatherStation",weatherStationsService.getWeatherStationById(id));
         model.addAttribute("weatherInfo", weatherInfoService.getWeatherInfoForCurrentStation(id));

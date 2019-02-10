@@ -14,16 +14,16 @@ L.layerJSON({
     propertyLoc: ['lat', 'lng'],
     buildIcon: function (data, title) {
         return new L.Icon({
-            iconUrl: 'images/marker24.png',
-            iconSize: new L.Point(29, 41),
+            iconUrl: 'images/weatherMarker.png',
+            iconSize: new L.Point(30, 30),
             iconAnchor: new L.Point(18, 41),
             popupAnchor: new L.Point(0, -41)
         });
     },
     buildPopup: function (data) {
-        return '<img class="" >' +
-            ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odśwież zdjęcie\n' +
-            '    </button>\n'|| null;
+        return '<div><table class="table">' +
+            '</table></div>'
+             || null;
     }
 })
     .on('dataloading', function (e) {
