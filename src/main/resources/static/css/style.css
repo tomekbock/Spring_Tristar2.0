@@ -94,8 +94,13 @@ h1 {
     margin-bottom: 5px;
 }
 
-.mapDiv a{
+.col a{
     float: right;
+}
+#buttons {
+
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 

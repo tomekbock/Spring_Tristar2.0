@@ -5,6 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dane z TRISTAR'a</title>
 
     <link rel="stylesheet" type="text/css" href="../css/leaflet.css"/>
     <link rel="stylesheet" type="text/css" href="../css/leaflet-loader.css"/>
@@ -61,9 +62,9 @@
                     <a class="nav-link" href="/camera"> Zdjęcia z Kamer </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Stacja Pogodowa - Historia </a>
-                </li>
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#"> Stacja Pogodowa - Historia </a>-->
+                <!--</li>-->
 
                 <li class="nav-item">
                     <a class="nav-link" href="#"> Kontakt </a>
@@ -87,32 +88,40 @@
 
 
 <div class="container">
-
-    <div class="mapDiv">
-        <a  href="/CamerasMap" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cameras</a>
-        <a id="middleButton" href="/VmsMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">VMS</a>
-        <a href="/WSMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">WS</a>
-        <h1>Kamery Tristar</h1>
+    <div id="buttons" class="row">
+        <div class="col">
+            <a href="/CamerasMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Kamery</a>
+            <a id="middleButton" href="/VmsMap" class="btn btn-secondary btn-lg active" role="button"
+               aria-pressed="true">Tablice</a>
+            <a href="/WSMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Stacje
+                Pogodowe</a>
+        </div>
     </div>
-    <article>
-        <section>
-            <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
-            <div id="loader" style="..."></div>
 
-        </section>
-        <footer>
+    <div class="row">
+        <div class="col">
+            <article>
+                <section>
+                    <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
+                    <div id="loader" style="..."></div>
 
-        </footer>
-        <hr/>
-    </article>
+                </section>
+                <footer>
 
-    <footer style="text-align: center">
-        <p><span style="text-decoration:none;color:grey;">Dane z: <a style="text-decoration:none;color:grey;"
-                                                                     href="http://otwartedane.gdynia.pl/"> Otwarte dane Gdynia </a></span>
-        </p>
-    </footer>
-
+                </footer>
+                <hr/>
+            </article>
+        </div>
+    </div>
 </div>
+
+<footer style="text-align: center">
+    <p><span style="text-decoration:none;color:grey;">Dane z: <a style="text-decoration:none;color:grey;" href="http://otwartedane.gdynia.pl/"> Otwarte dane Gdynia </a></span>
+    </p>
+    <p><span style="text-decoration:none;color:grey;">Developed by Tomek & Szymon</span>
+    </p>
+
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
