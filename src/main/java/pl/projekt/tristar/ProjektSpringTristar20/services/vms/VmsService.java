@@ -19,8 +19,11 @@ public class VmsService {
     @Autowired
     private VmsRepository vmsRepository;
 
+
+
     @EventListener(ApplicationReadyEvent.class)
     public void getVmsFromJson() {
+        vmsRepository.deleteAll();
 
         RestTemplate restTemplate = new RestTemplate();
         String vmsUrl = "http://api.zdiz.gdynia.pl/ri/rest/vms";

@@ -21,8 +21,10 @@ public class CamerasService {
     @Autowired
     private CameraRepository cameraRepository;
 
+
     @EventListener(ApplicationReadyEvent.class)
     public void getCameras() {
+        cameraRepository.deleteAll();
         RestTemplate restTemplate = new RestTemplate();
         String camerasUrl = "http://api.zdiz.gdynia.pl/ri/rest/cameras";
 

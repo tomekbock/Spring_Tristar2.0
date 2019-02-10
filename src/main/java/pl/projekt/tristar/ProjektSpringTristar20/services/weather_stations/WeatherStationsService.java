@@ -23,8 +23,11 @@ public class WeatherStationsService {
     private WeatherStationRepository weatherStationRepository;
 
 
+
+
     @EventListener(ApplicationReadyEvent.class)
     public void getfromJson() {
+        weatherStationRepository.deleteAll();
         RestTemplate restTemplate = new RestTemplate();
         String weatherStationsUrl = "http://api.zdiz.gdynia.pl/ri/rest/weather_stations";
 
