@@ -167,7 +167,7 @@ public class WeatherInfoService {
     }
 
     @Transactional
-    @Scheduled(cron = "0 00 13 * * *")
+    @Scheduled(cron = "0 5 13 * * *")
     public void deleteOldInfo() {
         weatherInfoRepository.deleteAllByDownloadTimeBefore(LocalDateTime.now().minusDays(5));
     }

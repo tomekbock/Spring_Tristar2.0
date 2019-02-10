@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -25,7 +26,7 @@
 
     <nav class="navbar navbar-dark  bg-primary navbar-expand-lg">
 
-        <a class="navbar-brand" href="#"><img src="images/logo2.png" width="30" height="30"
+        <a class="navbar-brand" href="/"><img src="images/logo2.png" width="30" height="30"
                                               class="d-inline-block mr-1 align-bottom" alt=""> Tristar 2.0</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu"
@@ -38,7 +39,7 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"> Start </a>
+                    <a class="nav-link" href="/"> Start </a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -47,17 +48,17 @@
 
                     <div class="dropdown-menu" aria-labelledby="submenu">
 
-                        <a class="dropdown-item" href="#"> Kamery </a>
-                        <a class="dropdown-item" href="#"> Tablice Zmiennej Treści </a>
+                        <a class="dropdown-item" href="/CamerasMap"> Kamery </a>
+                        <a class="dropdown-item" href="/VmsMap"> Tablice Zmiennej Treści </a>
 
-                        <a class="dropdown-item" href="#"> Stacje Pogodowe </a>
+                        <a class="dropdown-item" href="/WSMap"> Stacje Pogodowe </a>
 
                     </div>
 
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Zdjęcia z Kamer </a>
+                    <a class="nav-link" href="/camera"> Zdjęcia z Kamer </a>
                 </li>
 
                 <li class="nav-item">
@@ -73,6 +74,7 @@
                        aria-expanded="false" id="submenu2" aria-haspopup="true"> Rest </a>
 
                     <div class="dropdown-menu" aria-labelledby="submenu">
+
                         <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="/cameras"> VMS </a>
                         <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="/vms"> Cameras </a>
                         <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="/ws"> WS </a>
@@ -85,11 +87,11 @@
 
 <div class="container">
 
-    <div>
+    <div class="mapDiv">
         <a href="/CamerasMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Cameras</a>
-        <a href="/VmsMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">VMS</a>
+        <a  id="middleButton" href="/VmsMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">VMS</a>
         <a href="/WSMap" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">WS</a>
-        <h1>VMS Map</h1>
+        <h1>Stacje Meteorologiczne</h1>
     </div>
     <article>
         <section>

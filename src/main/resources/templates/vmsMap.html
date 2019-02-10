@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -42,7 +43,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
                        aria-expanded="false" id="submenu" aria-haspopup="true"> Mapa </a>
 
                     <div class="dropdown-menu" aria-labelledby="submenu">
@@ -87,11 +88,11 @@
 
 <div class="container">
 
-    <div>
+    <div class="mapDiv">
         <a href="/CamerasMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Cameras</a>
-        <a href="/VmsMap" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">VMS</a>
+        <a id="middleButton" href="/VmsMap" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">VMS</a>
         <a href="/WSMap" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">WS</a>
-        <h1>VMS Map</h1>
+        <h1>Znaki i Tablice Zmiennej Treści</h1>
     </div>
     <article>
         <section>
