@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <
 </head>
 <body>
@@ -18,7 +18,7 @@
     </button>
 
 
-    <section class="jumpers">
+    <section class="PohotoTristar">
 
         <div class="container">
             <header>
@@ -27,16 +27,19 @@
             </header>
             <div class="row">
 
-                <div th:each="cameras : ${cameraName}" class="col-sm-6 col-md-3">
+                <div th:each="camera : ${CamerasList}" class="col-sm-6 col-md-3">
 
                     <figure class="figure">
-                        <a href="#"><img th:src="@{/abc/} + ${cameras.getId()}" class="img-thumbnail"
-                                         alt="Cinque Terre" width="100%" height="auto" ></a>
-                        <div th:text="${cameras.getName()}" class="caption">Caption 1</div>
-                        <!--<div th:text="${cameras.getName()}" class="caption">Caption 1</div>-->
-
-
+                        <img th:src="@{/cameras/} + ${camera.getId()}" class="figure-img img-fluid rounded" alt="No photo in OpenData">
+                        <figcaption class="figure-caption">A caption for the above image.</figcaption>
                     </figure>
+
+
+                        <!--<img th:src="@{/cameras/} + ${camera.getId()}" class="img-fluid img-thumbnail"-->
+                             <!--alt="No photo in OpenData" width="auto" height="auto">-->
+                        <!--<h3 th:text="${camera.getName()}" class="caption">Caption 1</h3>-->
+
+                    <!--<div th:text="${cameras.getName()}" class="caption">Caption 1</div>-->
 
 
                 </div>

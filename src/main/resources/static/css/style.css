@@ -4,17 +4,25 @@ figcaption{
     position: center;
 }
 
-div{
+.test div{
     margin-bottom: 10px;
+
+    background:yellow;
+    float:right;
 }
+.PhotoTristar img{
 
+    width: auto;
+    height: auto;
 
-.img-rounded {
-    width: 25rem;
-    height: 25rem;
+}
+.img-rounded  {
+    width: 18rem;
+    height: 18rem;
 
     position: center;
 }
+
 
 .img-thumbnail {
     width: 150%;
@@ -23,6 +31,62 @@ div{
     position: center;
 }
 
+.img-fluid{
+
+    width: 100%;
+    height: auto;
+
+    position: center;
+
+}
 h5{
     position: center;
 }
+body
+{
+
+    color: #efefef;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+h1
+{
+    font-size: 36px;
+    font-weight: 400;
+    color: #C0D06F;
+    margin: 20px;
+}
+
+.jumpers
+{
+    text-align: center;
+}
+
+.jumpers img
+{
+    width: 100%;
+    height: auto;
+}
+
+.jumpers p
+{
+    margin-bottom: 30px;
+}
+
+.jumpers figcaption
+{
+    margin-top: 8px;
+}
+
+.img-fluid{
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+

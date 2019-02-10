@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherStationPOJO {
-    private int id;
+    private Long id;
     private String street;
     private WeatherStationLocationPOJO location;
 }

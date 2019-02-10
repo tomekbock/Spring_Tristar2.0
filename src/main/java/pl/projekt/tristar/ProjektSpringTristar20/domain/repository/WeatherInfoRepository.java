@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface WeatherInfoRepository extends JpaRepository<WeatherInfoEntity, Long> {
 
-    WeatherInfoEntity findFirstByWeatherStationIdOrderByDownloadTimeDesc(int id);
-    List<WeatherInfoEntity> findByWeatherStationId(int id, Pageable pageable);
+
+    List<WeatherInfoEntity> findByWeatherStationId(Long id, Pageable pageable);
+    WeatherInfoEntity findFirstByWeatherStationIdOrderByDownloadTimeDesc(Long id);
 }

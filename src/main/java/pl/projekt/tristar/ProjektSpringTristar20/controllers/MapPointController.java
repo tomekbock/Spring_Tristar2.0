@@ -1,6 +1,7 @@
 package pl.projekt.tristar.ProjektSpringTristar20.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.repository.MapPointRepository;
@@ -18,7 +19,6 @@ import java.util.List;
 public class MapPointController {
 
 
-
     @Autowired
     private VmsService vmsService;
     @Autowired
@@ -30,6 +30,7 @@ public class MapPointController {
     @RequestMapping("/cameras")
     public List<CameraDisplayPojo> list() {
         return camerasService.getAllCameras();
+
     }
 
 

@@ -43,11 +43,11 @@ public class WeatherInfoEntity {
 
     private String waterIceThickness;
 
-    private int stationId;
+    private Long stationId;
 
     private int windDirection;
 
     private String windSpeed;
 
-    private int weatherStationId;
+    private Long weatherStationId;
 }
