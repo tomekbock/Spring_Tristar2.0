@@ -22,7 +22,7 @@ L.layerJSON({
     },
     buildPopup: function (data) {
         return '<img class="img-thumbnail" src="/vms/'+data.id+'" alt="No in DB" >' +
-            ' <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odśwież zdjęcie\n' +
+            ' <button class="btn btn-primary btn-md btn-block" onClick="reloadVms(\' + data.id + \')">Odśwież zdjęcie\n' +
             '    </button>\n'|| null;
     }
 })
@@ -33,3 +33,7 @@ L.layerJSON({
         loader.style.display = 'none';
     })
     .addTo(map);
+
+function reloadVms(id) {
+    $("#cameraImage" + id).attr("src", "/vms/" + id);
+}
