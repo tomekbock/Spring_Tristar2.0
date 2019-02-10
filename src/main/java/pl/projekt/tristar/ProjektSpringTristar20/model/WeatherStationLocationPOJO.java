@@ -14,5 +14,5 @@ import java.util.List;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherStationLocationPOJO {
-    private List<String> coordinates;
+    private List<Double> coordinates;
 }
