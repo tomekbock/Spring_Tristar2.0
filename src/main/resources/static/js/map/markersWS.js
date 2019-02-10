@@ -26,8 +26,8 @@ L.layerJSON({
             '        <td>Temperatura powietrza</td>\n' +
             '        <td > : ' + data.airTemperature + '&deg;C</td>\n' +
             '    </tr>\n' +
-            '        <td>Temperatura podłoża</td>\n' +
-            '        <td > : ' + data.foundationTemperature + '&deg;C</td>\n' +
+            '        <td>Temperatura powierzchni</td>\n' +
+            '        <td > : ' + data.surfaceTemperature + '&deg;C</td>\n' +
             '    </tr>\n' +
             '<tr>\n' +
         '        <td>Prędkość wiatru</td>\n' +
