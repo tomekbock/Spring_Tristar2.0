@@ -9,13 +9,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
-public class WeatherStationEntity {
+public class WSDisplayEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -23,4 +25,28 @@ public class WeatherStationEntity {
     private String street;
     private Double lat;
     private Double lng;
+
+    private LocalDateTime downloadTime;
+
+    private String visibility;
+
+    private String strenghtWind;
+
+    private String surfaceTemperature;
+
+    private String foundationTemperature;
+
+    private String dewPoint;
+
+    private String measureTime;
+
+    private String chemicalConcentration;
+
+    private String airTemperature;
+
+    private String waterIceThickness;
+
+    private int windDirection;
+
+    private String windSpeed;
 }

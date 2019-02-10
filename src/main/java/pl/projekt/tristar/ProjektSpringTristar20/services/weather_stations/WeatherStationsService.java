@@ -40,8 +40,8 @@ public class WeatherStationsService {
         }
         return WSDisplayPojo.builder()
                 .id(source.getStationId())
-                .lat(Double.parseDouble(source.getLat()))
-                .lng(Double.parseDouble(source.getLng()))
+                .lat(source.getLat())
+                .lng(source.getLng())
                 .name(source.getStreet())
                 .build();
 
@@ -63,7 +63,7 @@ public class WeatherStationsService {
         if (source == null) {
             return null;
         }
-        List<String> coordinatesList = new ArrayList<>();
+        List<Double> coordinatesList = new ArrayList<>();
         coordinatesList.add(0,source.getLng());
         coordinatesList.add(1,source.getLat());
         return WeatherStationPOJO.builder()
