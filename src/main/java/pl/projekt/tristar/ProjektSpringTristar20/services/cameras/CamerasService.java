@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.projekt.tristar.ProjektSpringTristar20.domain.model.CameraEntity;
@@ -99,7 +100,7 @@ public class CamerasService {
 
     public List<CameraDisplayPojo> getAllCameras() {
 
-        return cameraRepository.findAll().stream().map(this::mapToDisplay).collect(Collectors.toList());
+        return cameraRepository.findAll(Sort.by(Sort.Direction.ASC, "cameraId")).stream().map(this::mapToDisplay).collect(Collectors.toList());
     }
 
 

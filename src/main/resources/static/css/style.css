@@ -1,28 +1,22 @@
 
-figcaption{
+figcaption {
     margin-top: 30px;
     position: center;
 }
 
-.test div{
-    margin-bottom: 10px;
-
-    background:yellow;
-    float:right;
-}
-.PhotoTristar img{
+.PhotoTristar img {
 
     width: auto;
     height: auto;
 
 }
-.img-rounded  {
+
+.img-rounded {
     width: 18rem;
     height: 18rem;
 
     position: center;
 }
-
 
 .img-thumbnail {
     width: 150%;
@@ -31,60 +25,78 @@ figcaption{
     position: center;
 }
 
-.img-fluid{
+.img-fluid {
 
     width: 100%;
     height: auto;
 
     position: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 
 }
-h5{
+
+h5 {
     position: center;
 }
-body
-{
+
+body {
 
     color: #efefef;
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
 }
 
-h1
-{
+h1 {
     font-size: 36px;
     font-weight: 400;
     color: #C0D06F;
     margin: 20px;
 }
 
-.jumpers
-{
-    text-align: center;
-}
-
-.jumpers img
-{
-    width: 100%;
-    height: auto;
-}
-
-.jumpers p
-{
-    margin-bottom: 30px;
-}
-
-.jumpers figcaption
-{
-    margin-top: 8px;
-}
-
-.img-fluid{
+.img-fluid {
 
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+
+
+
+#middleButton {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#refresh {
+
+    float: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+.figure img{
+    width: 100%;
+    height: auto;
+}
+
+.text-primary {
+    text-align: center;
+}
+
+
+#tristarCamera{
+    margin-bottom: 10px;
+}
+
+#buttonMap{
+    margin-bottom: 5px;
+}
+
+.mapDiv a{
+    float: right;
+}
 
 
 

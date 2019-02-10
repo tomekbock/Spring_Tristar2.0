@@ -1,48 +1,107 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Bootstrap Example</title>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="../css/leaflet.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/leaflet-loader.css"/>
+    <script type='text/javascript' src='../js/jquery.min.js'></script>
+    <script type='text/javascript' src='../js/leaflet.js'></script>
+    <script type='text/javascript' src='../js/leaflet-loader.js'></script>
+    <script type='text/javascript' src='../js/leaflet-layerjson.min.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
+
 <body>
 
-<main>
-    <button class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odśwież zdjęcie
+<section class="PohotoTristar">
+
+    <header>
+
+        <nav class="navbar navbar-dark  bg-primary navbar-expand-lg">
+
+            <a class="navbar-brand" href="/"><img src="images/logo2.png" width="30" height="30"
+                                                  class="d-inline-block mr-1 align-bottom" alt=""> Tristar 2.0</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu"
+                    aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainmenu">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/"> Start </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+                           aria-expanded="false" id="submenu" aria-haspopup="true"> Mapa </a>
+
+                        <div class="dropdown-menu" aria-labelledby="submenu">
+
+                            <a class="dropdown-item" href="/CamerasMap"> Kamery </a>
+                            <a class="dropdown-item" href="/VmsMap"> Tablice Zmiennej Treści </a>
+
+                            <a class="dropdown-item" href="/WSMap"> Stacje Pogodowe </a>
+
+                        </div>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/camera"> Zdjęcia z Kamer </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Stacja Pogodowa - Historia </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Kontakt </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+                           aria-expanded="false" id="submenu2" aria-haspopup="true"> Rest </a>
+
+                        <div class="dropdown-menu" aria-labelledby="submenu">
+
+                            <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="/cameras"> VMS </a>
+                            <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="/vms"> Cameras </a>
+                            <a target="_blank" rel="noopener noreferrer" class="dropdown-item" href="/ws"> WS </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <button id="refresh" class="btn btn-primary btn-md btn-block" onClick="window.location.reload()">Odśwież zdjęcie
     </button>
+    <div class="container">
+        <div class="row">
 
+            <div th:each="camera : ${CamerasList}" class="col-sm-6 col-md-3">
 
-    <section class="PohotoTristar">
+                <figure class="figure">
+                    <img th:src="@{/cameras/} + ${camera.getId()}" class="figure-img img-fluid rounded"
+                         alt="No photo in OpenData">
+                    <figcaption id="tristarCamera" class="figure-caption">
+                        <p class="text-primary" th:text="${camera.getName()}" >CameraName</p>
+                    </figcaption>
 
-        <div class="container">
-            <header>
-                <h1>Zdjecia z Tristar'a</h1>
-                <p>Sytuacja na drogach</p>
-            </header>
-            <div class="row">
-
-                <div th:each="camera : ${CamerasList}" class="col-sm-6 col-md-3">
-
-                    <figure class="figure">
-                        <img th:src="@{/cameras/} + ${camera.getId()}" class="figure-img img-fluid rounded" alt="No photo in OpenData">
-                        <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                    </figure>
-
-
-                        <!--<img th:src="@{/cameras/} + ${camera.getId()}" class="img-fluid img-thumbnail"-->
-                             <!--alt="No photo in OpenData" width="auto" height="auto">-->
-                        <!--<h3 th:text="${camera.getName()}" class="caption">Caption 1</h3>-->
-
-                    <!--<div th:text="${cameras.getName()}" class="caption">Caption 1</div>-->
-
-
-                </div>
+                </figure>
 
 
             </div>
@@ -50,7 +109,10 @@
 
         </div>
 
-    </section>
+
+    </div>
+
+</section>
 
 </main>
 
