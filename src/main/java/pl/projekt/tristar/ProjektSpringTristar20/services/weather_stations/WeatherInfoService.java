@@ -102,7 +102,7 @@ public class WeatherInfoService {
         return map(weatherInfoRepository.findFirstByWeatherStationIdOrderByDownloadTimeDesc(id));
     }
 
-    public List<WeatherInfoPOJO> getHistory(int id, int limit, Sort.Direction direction) {
+    public List<WeatherInfoPOJO> getHistory(Long id, int limit, Sort.Direction direction) {
         PageRequest pageable = PageRequest.of(0, limit, direction, "downloadTime");
         return weatherInfoRepository.findByWeatherStationId(id,pageable).stream().map(this::map).collect(Collectors.toList());
 
