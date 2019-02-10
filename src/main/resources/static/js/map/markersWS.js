@@ -8,7 +8,7 @@ L.layerJSON({
     minShift: 300,				//min shift for update data(in meters)
     updateOutBounds: false,		//request new data only if current bounds higher than last bounds
     layerTarget: layerGroup,
-    url: '/ws',
+    url: '/info',
     propertyItems: '',
     propertyTitle: 'name',
     propertyLoc: ['lat', 'lng'],
@@ -21,9 +21,27 @@ L.layerJSON({
         });
     },
     buildPopup: function (data) {
-        return '<div><table class="table">' +
-            '</table></div>'
-             || null;
+        return '<table class="table-primary">\n' +
+            '    <tr>\n' +
+            '        <td>Temperatura powietrza</td>\n' +
+            '        <td > : ' + data.airTemperature + '&deg;C</td>\n' +
+            '    </tr>\n' +
+            '        <td>Temperatura podłoża</td>\n' +
+            '        <td > : ' + data.foundationTemperature + '&deg;C</td>\n' +
+            '    </tr>\n' +
+            '<tr>\n' +
+        '        <td>Prędkość wiatru</td>\n' +
+        '        <td > : ' + data.windSpeed + 'm/s</td>\n' +
+        '    </tr>\n' +
+            '        <td>Kierunek wiatru</td>\n' +
+            '        <td > : ' + data.windDirection + '</td>\n' +
+            '    </tr>\n' +
+            '<tr>\n' +
+        '        <td>Widoczność</td>\n' +
+        '        <td > : ' + data.visibility + 'm</td>\n' +
+        '    </tr>\n' +
+        '</table>' || null;
+
     }
 })
     .on('dataloading', function (e) {

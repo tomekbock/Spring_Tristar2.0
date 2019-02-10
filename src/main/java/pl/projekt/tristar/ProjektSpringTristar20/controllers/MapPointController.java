@@ -10,6 +10,7 @@ import pl.projekt.tristar.ProjektSpringTristar20.model.VmsDisplayPojo;
 import pl.projekt.tristar.ProjektSpringTristar20.model.WSDisplayPojo;
 import pl.projekt.tristar.ProjektSpringTristar20.services.cameras.CamerasService;
 import pl.projekt.tristar.ProjektSpringTristar20.services.vms.VmsService;
+import pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations.WeatherInfoService;
 import pl.projekt.tristar.ProjektSpringTristar20.services.weather_stations.WeatherStationsService;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class MapPointController {
     private WeatherStationsService weatherStationsService;
     @Autowired
     private CamerasService camerasService;
+    @Autowired
+    private WeatherInfoService weatherInfoService;
 
 
     @RequestMapping("/cameras")
@@ -44,6 +47,10 @@ public class MapPointController {
     public List<VmsDisplayPojo> listVms() {
         return vmsService.getAllVmsToDisplay();
 
+    }
+    @RequestMapping("/info")
+    public List<WSDisplayPojo> listWSDisplay() {
+        return weatherInfoService.getAllWSDisplays();
     }
 
 
