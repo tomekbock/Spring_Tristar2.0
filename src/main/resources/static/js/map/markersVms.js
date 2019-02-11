@@ -21,8 +21,8 @@ L.layerJSON({
         });
     },
     buildPopup: function (data) {
-        return '<img class="img-thumbnail" src="/vms/'+data.id+'" alt="No in DB" >' +
-            ' <button class="btn btn-primary btn-md btn-block" onClick="reloadVms(\' + data.id + \')">Odśwież zdjęcie\n' +
+        return '<img class="img-thumbnail" id="VmsImage'+data.id+'" src="/vms/'+data.id+'" alt="No in DB" >' +
+            ' <button class="btn btn-primary btn-md btn-block" onClick="reloadVms('+ data.id +')">Odśwież zdjęcie\n' +
             '    </button>\n'|| null;
     }
 })
@@ -35,5 +35,5 @@ L.layerJSON({
     .addTo(map);
 
 function reloadVms(id) {
-    $("#cameraImage" + id).attr("src", "/vms/" + id);
+    $("#VmsImage" +id).removeAttr("src").attr("src", "/vms/" +id);
 }
