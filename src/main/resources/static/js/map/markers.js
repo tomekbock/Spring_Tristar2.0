@@ -23,7 +23,7 @@ L.layerJSON({
     buildPopup: function (data) {
         return '<img class="img-rounded" id="cameraImage' + data.id + '"  src="/cameras/'+ data.id + '"  alt="No in DB">' +
             '<h5>' + data.name + '</h5>' +
-            ' <button  class="btn btn-primary btn-md btn-block" onClick="reloadImage(' + data.id +')">Odśwież zdjęcie\n' +
+            ' <button  class="btn btn-primary btn-md btn-block" onClick="reloadImage('+ data.id +')">Odśwież zdjęcie\n' +
             '    </button>\n' || null;
     }
 })
@@ -36,7 +36,7 @@ L.layerJSON({
     .addTo(map);
 
 function reloadImage(id) {
-    $("#cameraImage" + id).removeAttr("src").attr("src", "/cameras/" + id);
+    $("#cameraImage" +id).removeAttr("src").attr("src", "/cameras/" + id);
 
 
 }
