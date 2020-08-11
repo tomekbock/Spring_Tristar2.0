@@ -78,7 +78,7 @@ public class CamerasService {
     public String getCameraInfo(Integer cameraID) throws IOException {
 
         RestTemplate restTemplate = new RestTemplate();
-        String camerasUrl = "http://51.38.132.218/ri/rest/camera_image_data?cameraId=" + cameraID;
+        String camerasUrl = "http://api.zdiz.gdynia.pl/ri/rest/camera_image_data?cameraId=" + cameraID;
 
         String json = restTemplate.getForObject(camerasUrl, String.class);
 

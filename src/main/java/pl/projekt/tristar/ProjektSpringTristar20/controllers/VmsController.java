@@ -19,7 +19,7 @@ public class VmsController {
     @GetMapping("/vms/{id}")
     public String showURL(@PathVariable(value = "id") Integer id) throws IOException {
 
-        return "redirect:http://51.38.132.218" + vmsInfoService.getVmsInfofromVms(id).getImageUrl();
+        return "redirect:http://api.zdiz.gdynia.pl" + vmsInfoService.getVmsInfofromVms(id).getImageUrl();
 
 
     }

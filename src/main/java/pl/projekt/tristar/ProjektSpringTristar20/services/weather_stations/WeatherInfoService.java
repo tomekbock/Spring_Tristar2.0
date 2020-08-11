@@ -35,7 +35,7 @@ public class WeatherInfoService {
     public WeatherInfoPOJO getWeatherInfoFromStation(Long id) {
         try {
             RestTemplate restTemplate = new RestTemplate();
-            String weatherStationUrl = "http://51.38.132.218/ri/rest/weather_station_data?weatherStationId=" + id;
+            String weatherStationUrl = "http://api.zdiz.gdynia.pl/ri/rest/weather_station_data?weatherStationId=" + id;
 
 
             String json = restTemplate.getForObject(weatherStationUrl, String.class);

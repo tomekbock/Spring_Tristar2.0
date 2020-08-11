@@ -34,7 +34,7 @@ public class CameraController {
     @GetMapping("/cameras/{id}")
     public String showURL(@PathVariable(value = "id") Integer id) throws IOException {
 
-        return "redirect:http://51.38.132.218" + camerasService.getCameraInfo(id);
+        return "redirect:http://api.zdiz.gdynia.pl" + camerasService.getCameraInfo(id);
 
     }
 
